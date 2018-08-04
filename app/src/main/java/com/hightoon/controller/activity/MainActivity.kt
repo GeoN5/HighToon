@@ -9,6 +9,9 @@ import android.widget.Toast
 import com.hightoon.R
 import android.support.design.widget.BottomNavigationView
 import android.view.MenuItem
+import com.hightoon.controller.fragment.CodyFragment
+import com.hightoon.controller.fragment.LockerFragment
+import com.hightoon.controller.fragment.SaleFragment
 import com.hightoon.controller.fragment.SeasonFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -23,18 +26,18 @@ class MainActivity : AppCompatActivity() {
     private val mOnNavigationItemSelectedListener = object : BottomNavigationView.OnNavigationItemSelectedListener {
 
         override fun onNavigationItemSelected(item: MenuItem): Boolean {
-            when (item.getItemId()) {
+            when (item.itemId) {
                 R.id.action_main -> {
                     fragment = SeasonFragment.newInstance()
                 }
                 R.id.action_cody -> {
-
+                    fragment = CodyFragment.newInstance()
                 }
                 R.id.action_sale -> {
-
+                    fragment = SaleFragment.newInstance()
                 }
                 R.id.action_locker ->{
-
+                    fragment = LockerFragment.newInstance()
                 }
             }
             val transaction = fragmentManager.beginTransaction()
@@ -57,14 +60,13 @@ class MainActivity : AppCompatActivity() {
         fragment = SeasonFragment.newInstance()
         val transaction = fragmentManager.beginTransaction()
         transaction.replace(R.id.content, fragment).commit()
-
     }
 
     override fun onBackPressed() {
         var tempTime = System.currentTimeMillis()
         var intervalTime = tempTime - backPressedTime
         if (intervalTime in 0..FINSH_INTERVAL_TIME) {
-            ActivityCompat.finishAffinity(this);
+            ActivityCompat.finishAffinity(this)
         } else {
             backPressedTime = tempTime
             Toast.makeText(applicationContext, "한번 더 누르시면 종료됩니다.", Toast.LENGTH_SHORT).show()

@@ -12,12 +12,8 @@ import com.hightoon.R
 
 class SpringFragment : Fragment() {
 
-
-    companion object {
-
-        @JvmStatic
-        fun newInstance() = SpringFragment()
-
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -25,7 +21,6 @@ class SpringFragment : Fragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_spring, container, false)
     }
-
 
 
 }
