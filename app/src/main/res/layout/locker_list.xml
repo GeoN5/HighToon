@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="96dp"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+        <ImageView
+            android:id="@+id/image"
+            android:src="@drawable/ic_launcher_background"
+            android:layout_width="50dp"
+            android:layout_height="70dp"
+            android:layout_margin="13dp"/>
+
+        <TextView
+            android:id="@+id/company"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Spring Trendy Look SET"
+            android:textColor="#596b16"
+            android:textSize="13sp"
+            android:layout_marginTop="13dp"
+            android:layout_toRightOf="@+id/image"/>
+    
+    <ImageButton
+        android:id="@+id/delete"
+        android:layout_width="25dp"
+        android:layout_height="30dp"
+        android:src="@drawable/delete"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"/>
+
+    <ImageButton
+        android:id="@+id/buy"
+        android:layout_width="25dp"
+        android:layout_height="30dp"
+        android:src="@drawable/buy"
+        android:layout_toLeftOf="@+id/delete"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="5dp"/>
+    
+    <View
+        android:layout_width="150dp"
+        android:layout_height="1dp"
+        android:layout_below="@id/company"
+        android:background="#707070"
+        android:layout_toRightOf="@+id/image"/>
+
+    <TextView
+        android:id="@+id/size"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="13sp"
+        android:layout_marginTop="13dp"
+        android:layout_toLeftOf="@+id/delete"
+        android:layout_marginRight="70dp"
+        android:textColor="@android:color/black"
+        tools:text="XL"/>
+    
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_below="@id/company"
+        android:layout_toRightOf="@+id/image"
+        android:layout_marginTop="15dp"
+        android:textSize="20dp"
+        android:textColor="@android:color/black"
+        tools:text="상품 이름"
+        />
+
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_below="@id/size"
+        android:layout_toRightOf="@+id/title"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="10dp"
+        android:gravity="end"
+        android:layout_alignParentRight="true"
+        android:textSize="20dp"
+        android:textColor="#a5c23a"
+        tools:text="42000"
+        />
+
+
+    <View
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#f2c156"/>
+
+</RelativeLayout>
