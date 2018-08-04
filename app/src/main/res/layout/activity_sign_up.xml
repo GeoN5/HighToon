@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".controller.activity.LoginActivity">
+    tools:context=".controller.activity.SignUpActivity">
 
     <ImageView
         android:layout_width="wrap_content"
@@ -13,7 +13,7 @@
         android:background="@drawable/bg_splash"/>
 
     <ImageView
-        android:id="@+id/loginIc"
+        android:id="@+id/signupIc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -21,10 +21,10 @@
         android:src="@drawable/ic_login"/>
 
     <EditText
-        android:id="@+id/loginId"
+        android:id="@+id/signupId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/loginIc"
+        android:layout_below="@+id/signupIc"
         android:layout_marginLeft="58dp"
         android:layout_marginRight="58dp"
         android:layout_marginTop="28dp"
@@ -32,51 +32,47 @@
         android:theme="@style/SignText"/>
 
     <EditText
-        android:id="@+id/loginPw"
+        android:id="@+id/signupPw"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/loginId"
+        android:layout_below="@+id/signupId"
         android:layout_marginLeft="58dp"
         android:layout_marginRight="58dp"
         android:layout_marginTop="28dp"
         android:hint="Password"
         android:theme="@style/SignText"/>
 
+    <EditText
+        android:id="@+id/signupName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/signupPw"
+        android:layout_marginLeft="58dp"
+        android:layout_marginRight="58dp"
+        android:layout_marginTop="28dp"
+        android:hint="User Name"
+        android:theme="@style/SignText"/>
+
+    <EditText
+        android:id="@+id/signupPhone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/signupName"
+        android:layout_marginLeft="58dp"
+        android:layout_marginRight="58dp"
+        android:layout_marginTop="28dp"
+        android:hint="User Phone"
+        android:theme="@style/SignText"/>
+
     <Button
-        android:id="@+id/loginBtn"
+        android:id="@+id/signupBtn"
+        android:layout_marginTop="19dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/loginPw"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="38dp"
+        android:textColor="#F2C156"
+        android:text="Register"
+        android:layout_height="wrap_content"
         android:background="@drawable/bg_loginbtn"
-        android:text="Sign In"
-        android:textColor="#F2C156"/>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/loginBtn"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="38dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Don't have  an account?"
-            android:textColor="@android:color/white"/>
-
-
-        <TextView
-            android:id="@+id/loginSignBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:text="Sign Up"
-            android:textColor="@android:color/white"
-            android:textStyle="bold"/>
-
-    </LinearLayout>
+        android:layout_below="@+id/signupPhone"/>
 
 </RelativeLayout>

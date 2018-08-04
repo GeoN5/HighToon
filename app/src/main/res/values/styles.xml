@@ -16,4 +16,11 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="SignText">
+        <item name="colorControlActivated">@android:color/white</item>
+        <item name="android:textColor">#B37636</item>
+        <item name="android:textColorHint">@android:color/white</item>
+        <item name="colorControlNormal">@android:color/white</item>
+    </style>
+
 </resources>

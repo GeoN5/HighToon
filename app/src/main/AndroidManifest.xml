@@ -22,7 +22,13 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity">
+        <activity
+            android:name=".controller.activity.LoginActivity"
+            android:theme="@style/NoTitle">
+        </activity>
+        <activity
+            android:name=".controller.activity.SignUpActivity"
+            android:theme="@style/NoTitle">
         </activity>
     </application>
 
