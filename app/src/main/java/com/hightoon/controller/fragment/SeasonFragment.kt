@@ -8,21 +8,20 @@ import android.view.ViewGroup
 import com.hightoon.R
 
 
-class WeatherFragment : Fragment() {
+class SeasonFragment : Fragment() {
 
     lateinit var fragmentView : View
 
     companion object {
 
         @JvmStatic
-        fun newInstance() = WeatherFragment()
+        fun newInstance() = SeasonFragment()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        fragmentView =  inflater.inflate(R.layout.fragment_weather, container, false)
-
+        fragmentView =  inflater.inflate(R.layout.fragment_season, container, false)
         return fragmentView
     }
 
