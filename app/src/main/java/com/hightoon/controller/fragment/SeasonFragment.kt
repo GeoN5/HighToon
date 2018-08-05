@@ -12,6 +12,7 @@ import com.hightoon.controller.adapter.HomeAdapter
 import kotlinx.android.synthetic.main.fragment_season.view.*
 import android.support.v4.view.ViewPager
 import android.util.Log
+import com.hightoon.Util.RetrofitUtil
 import kotlinx.android.synthetic.main.fragment_season.*
 import org.jetbrains.anko.support.v4.onPageChangeListener
 
@@ -21,6 +22,7 @@ class SeasonFragment : Fragment() {
 
     companion object {
         @JvmStatic
+
         fun newInstance() = SeasonFragment()
     }
 
@@ -30,19 +32,6 @@ class SeasonFragment : Fragment() {
 
         val adapter = HomeAdapter(childFragmentManager)
         view.seasonViewpager.adapter = adapter
-        view.seasonViewpager.addOnPageChangeListener(object:ViewPager.OnPageChangeListener{
-            override fun onPageScrollStateChanged(state: Int) {
-            }
-
-            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
-            }
-
-            override fun onPageSelected(position: Int) {
-                Log.e("pos", position.toString())
-            }
-
-        })
-
         return view
     }
 }

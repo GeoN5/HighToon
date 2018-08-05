@@ -18,13 +18,14 @@ interface OnItemClickListener {
     fun onItemBuy(position: Int)
 }
 
-class ViewHolder(override val containerView: View, val listener: OnItemClickListener) : RecyclerView.ViewHolder(containerView), LayoutContainer {
+class ViewHolder(override val containerView: View, val listener: OnItemClickListener) : RecyclerView.ViewHolder(containerView) , LayoutContainer {
 
     fun bind(item: locker) {
         company.text = item.company
         size.text = item.size
-        title.text = item.size
+        title.text = item.title
         price.text = item.price
+
         delete.setOnClickListener {
             listener.onItemDelete(adapterPosition)
         }

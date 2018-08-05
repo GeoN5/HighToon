@@ -3,14 +3,23 @@ package com.hightoon.Util
 import android.content.Context
 import android.content.SharedPreferences
 import android.net.Uri
+import android.util.Log
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.eclipsesource.json.Json
+import com.google.gson.Gson
+import com.google.gson.JsonObject
 import com.hightoon.Util.RetrofitUtil.MULTIPART_FORM_DATA
+import com.hightoon.controller.data.SeasonList
 import okhttp3.MediaType
 import okhttp3.MultipartBody
 import okhttp3.OkHttpClient
 import okhttp3.RequestBody
+import org.json.simple.JSONObject
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.io.File
@@ -36,6 +45,25 @@ object RetrofitUtil {
     val MULTIPART_FORM_DATA = "multipart/form-data"
 
     val postService = retrofit!!.create(Services::class.java)
+
+    fun season(season : String){
+        var res = RetrofitUtil.postService.Season(season)
+        res.enqueue(object : Callback<SeasonList> {
+            override fun onResponse(call: Call<SeasonList>?, response: Response<SeasonList>) {
+                if(response.code() == 200){
+                    Log.e("아아앙",season)
+                    Log.e("아아아앙", Gson().toJson(response!!.body()!!.list))
+                }else{
+                    Log.e("로그를 머로찍지","정보존재x")
+                }
+
+            }
+
+            override fun onFailure(call: Call<SeasonList>?, t: Throwable?) {
+                Log.e("season" + season + "Error", t!!.message)
+            }
+        })
+
     }
 
     fun createRequestBody(file: File, name: String): MultipartBody.Part {
@@ -48,31 +76,16 @@ object RetrofitUtil {
     }
 
 
-//object SharedPreferenceUtil {
-//
-//    fun getData(context : Context, key : String) : String? {
-//        var sharedPreferences : SharedPreferences = context.getSharedPreferences("test",Context.MODE_PRIVATE)
-//        return sharedPreferences.getString(key, null)
-//    }
-//
-//    fun saveData(context: Context, key : String, value : String) {
-//        var sharedPreferences : SharedPreferences = context.getSharedPreferences("test", Context.MODE_PRIVATE)
-//        var editor : SharedPreferences.Editor = sharedPreferences.edit()
-//        editor.putString(key, value)
-//        editor.commit()
-//    }
-//
-//}
-
-object DateUtil{
-    fun formatDate(dateData : String):String{
-        //JS 고유 날짜 포맷 형식객체를 만듬.
-        val inputFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSX")
-        //인자를 형변환해서 Date 타입 객체로 받음.
-        var date : Date = inputFormat.parse(dateData)
-        //바꿀 포맷 형식으로 객체 생성.
-        var simpleDataFormat : SimpleDateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
-        //format 메소드를 통해 바꿔서 리턴.
-        return simpleDataFormat.format(date)
+    object DateUtil {
+        fun formatDate(dateData: String): String {
+            //JS 고유 날짜 포맷 형식객체를 만듬.
+            val inputFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSX")
+            //인자를 형변환해서 Date 타입 객체로 받음.
+            var date: Date = inputFormat.parse(dateData)
+            //바꿀 포맷 형식으로 객체 생성.
+            var simpleDataFormat: SimpleDateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
+            //format 메소드를 통해 바꿔서 리턴.
+            return simpleDataFormat.format(date)
+        }
     }
 }

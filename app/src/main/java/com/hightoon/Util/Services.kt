@@ -1,6 +1,7 @@
 package com.hightoon.Util
 
 import android.media.session.MediaSession
+import com.hightoon.controller.data.SeasonList
 import com.hightoon.controller.data.Signin
 import com.hightoon.controller.data.User
 import retrofit2.Call
@@ -23,4 +24,7 @@ interface Services{
     @GET("/auto/{token}")
     fun Token(@Path("token") token: String): Call<MediaSession.Token>
 
+    @Multipart
+    @POST("/item/list")
+    fun Season(@Part("season") season : String) : Call<SeasonList>
 }

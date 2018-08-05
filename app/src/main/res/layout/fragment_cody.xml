@@ -1,121 +1,197 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:weightSum="360"
-    tools:context=".controller.fragment.CodyFragment">
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:weightSum="360"
+              tools:context=".controller.fragment.CodyFragment">
 
     <Space
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="10" />
+        android:layout_weight="10"/>
 
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="26sp"
-        android:textColor="#3c581d"
         android:lineSpacingExtra="3sp"
-        android:textStyle="bold"
-        android:text="오늘의 추천 상품!"/>
+        android:text="오늘의 추천 상품!"
+        android:textColor="#3c581d"
+        android:textSize="26sp"
+        android:textStyle="bold"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:lineSpacingExtra="1sp"
+        android:textColor="#6f9d3d"
         android:textSize="11sp"
         android:textStyle="bold"
-        android:layout_marginLeft="20dp"
-        android:textColor="#6f9d3d"
-        android:lineSpacingExtra="1sp"
         tools:text="오늘은 햇빛이 적어 추위를 잘타시는 분들은 조금 따뜻하게
 입으시고 오늘은 과감한 어두운 색을 추천드려요!"
         />
 
-    <Space
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="15"/>
-
+<LinearLayout
+    android:layout_marginTop="40dp"
+    android:layout_gravity="center"
+    android:layout_width="wrap_content"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:orientation="horizontal">
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content">
 
-        <ImageButton
-            android:id="@+id/cody1"
-            android:layout_width="140dp"
-            android:layout_marginLeft="20dp"
-            android:layout_height="match_parent"
-            android:background="@drawable/a"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-        <ImageButton
-            android:id="@+id/cody2"
-            android:layout_width="140dp"
-            android:layout_marginLeft="10dp"
-            android:layout_height="match_parent"
-            android:background="@drawable/f"/>
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:background="@drawable/a"/>
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginLeft="55dp"
+                android:layout_marginTop="15dp"
+                android:layout_weight="15"
+                android:lineSpacingExtra="1sp"
+                android:text="꽃무늬 치마"
+                android:textColor="#3c581d"
+                android:textSize="13sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginLeft="45dp"
+                android:layout_marginTop="5dp"
+                android:layout_weight="20"
+                android:lineSpacingExtra="1sp"
+                android:textColor="#3c581d"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                tools:text="가격 : 44000"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/k"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginLeft="55dp"
+                android:layout_marginTop="15dp"
+                android:layout_weight="15"
+                android:lineSpacingExtra="1sp"
+                android:text="분홍색 코트"
+                android:textColor="#3c581d"
+                android:textSize="13sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginLeft="45dp"
+                android:layout_marginTop="5dp"
+                android:layout_weight="20"
+                android:lineSpacingExtra="1sp"
+                android:textColor="#3c581d"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                tools:text="가격 : 94000"/>
+    </LinearLayout>
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_marginTop="15dp"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content">
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:background="@drawable/nine"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
-                android:layout_weight="15"
-                android:layout_marginTop="10dp"
                 android:layout_marginLeft="55dp"
-                android:textSize="13sp"
-                android:textColor="#3c581d"
-                android:lineSpacingExtra="1sp"
-                android:textStyle="bold"
-                android:text="꽃무늬 치마"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_weight="20"
-                android:textStyle="bold"
-                android:textSize="15sp"
-                android:layout_marginLeft="45dp"
-                android:textColor="#3c581d"
-                android:lineSpacingExtra="1sp"
-                android:layout_marginTop="5dp"
-                tools:text="가격 : 44000"/>
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="15"/>
-
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
+                android:layout_marginTop="15dp"
                 android:layout_weight="15"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="55dp"
-                android:textSize="13sp"
-                android:textColor="#3c581d"
                 android:lineSpacingExtra="1sp"
-                android:textStyle="bold"
-                android:text="꽃무늬 치마"/>
+                android:text="남색 원피스"
+                android:textColor="#3c581d"
+                android:textSize="13sp"
+                android:textStyle="bold"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
-                android:layout_weight="20"
-                android:textStyle="bold"
-                android:textSize="15sp"
                 android:layout_marginLeft="45dp"
-                android:textColor="#3c581d"
-                android:lineSpacingExtra="1sp"
                 android:layout_marginTop="5dp"
-                tools:text="가격 : 44000"/>
+                android:layout_weight="20"
+                android:lineSpacingExtra="1sp"
+                android:textColor="#3c581d"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                tools:text="가격 : 56000"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/seven"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginLeft="55dp"
+                android:layout_marginTop="15dp"
+                android:layout_weight="15"
+                android:lineSpacingExtra="1sp"
+                android:text="초록 티셔츠"
+                android:textColor="#3c581d"
+                android:textSize="13sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginLeft="45dp"
+                android:layout_marginTop="5dp"
+                android:layout_weight="20"
+                android:lineSpacingExtra="1sp"
+                android:textColor="#3c581d"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                tools:text="가격 : 39000"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
 
 </LinearLayout>

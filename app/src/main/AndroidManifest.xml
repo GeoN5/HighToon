@@ -11,8 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".controller.activity.MainActivity"
-            android:theme="@style/NoTitle">
+        <activity android:name=".controller.activity.MainActivity">
         </activity>
         <activity
             android:name=".controller.activity.SplashActivity"
@@ -30,6 +29,9 @@
         <activity
             android:name=".controller.activity.SignUpActivity"
             android:theme="@style/NoTitle">
+        </activity>
+        <activity android:name=".controller.activity.SeleterActivity"
+            android:label="상품 상세 정보">
         </activity>
     </application>
 

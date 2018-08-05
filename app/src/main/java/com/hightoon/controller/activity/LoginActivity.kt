@@ -1,6 +1,7 @@
 package com.hightoon.controller.activity
 
 import android.content.Context
+import android.media.session.MediaSession
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -8,6 +9,7 @@ import com.hightoon.R
 import com.hightoon.Util.ORMUtil
 import com.hightoon.Util.RetrofitUtil
 import com.hightoon.controller.data.Signin
+import com.hightoon.controller.data.User
 import kotlinx.android.synthetic.main.activity_login.*
 import org.jetbrains.anko.sdk25.coroutines.onClick
 import org.jetbrains.anko.startActivity
@@ -43,14 +45,12 @@ class LoginActivity : AppCompatActivity() {
             }
 
             override fun onResponse(call: Call<Signin>?, response: Response<Signin>) {
-                var pres = getSharedPreferences("pres", Context.MODE_PRIVATE)
-                var editor = pres.edit()
                 when {
                     response.code() == 200 -> response.body()?.let {
                         token = response.body()!!.token!!
                         ORMUtil(this@LoginActivity).tokenORM.save(response.body()!!)
                         toast("로그인을 성공하였습니다")
-                        editor.putString("token",token)
+                        userData(token)
                         startActivity<MainActivity>()
                         finish()
                     }
@@ -65,4 +65,25 @@ class LoginActivity : AppCompatActivity() {
 
         })
     }
+
+    fun userData(token : String){
+        var res = RetrofitUtil.postService.Token(token) as Call<User>
+        res.enqueue(object : Callback<User>{
+            override fun onFailure(call: Call<User>?, t: Throwable?) {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+
+            override fun onResponse(call: Call<User>?, response: Response<User>) {
+                if(response.code() == 200){
+                    response.body()?.let {
+                        ORMUtil(this@LoginActivity).userORM.save(response.body()!!)
+                    }
+                }else{
+                    toast("유저 정보를 불러오는데 문제가 생겼습니다.")
+                }
+            }
+
+        })
+    }
+
 }

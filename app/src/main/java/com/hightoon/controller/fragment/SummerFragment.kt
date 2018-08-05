@@ -4,26 +4,87 @@ import android.content.Context
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.widget.GridLayoutManager
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.google.gson.Gson
 
 import com.hightoon.R
+import com.hightoon.Util.RetrofitUtil
+import com.hightoon.controller.adapter.HomeRecyclerAdapter
+import com.hightoon.controller.data.RecyclerData
+import com.hightoon.controller.data.SeasonList
+import kotlinx.android.synthetic.main.fragment_spring.view.*
+import kotlinx.android.synthetic.main.fragment_summer.view.*
+import org.json.simple.JSONArray
+import org.json.simple.JSONObject
+import org.json.simple.parser.JSONParser
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
 class SummerFragment : Fragment() {
 
-    companion object {
-
-        @JvmStatic
-        fun newInstance() = SummerFragment()
-
+    var item: ArrayList<RecyclerData> = ArrayList()
+    var array: JSONArray? = null
+    var tmp: JSONObject? = null
+    private lateinit var adapter: HomeRecyclerAdapter
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
     }
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_summer, container, false)
+
+        var view = inflater.inflate(R.layout.fragment_summer, container, false)
+        var layoutManager = GridLayoutManager(context,2)
+        view.semmerRecycler.layoutManager = layoutManager
+        adapter = HomeRecyclerAdapter(item,context!!)
+        view.semmerRecycler.adapter = adapter
+        var res = RetrofitUtil.postService.Season("여름")
+
+        res.enqueue(object : Callback<SeasonList> {
+
+            override fun onResponse(call: Call<SeasonList>?, response: Response<SeasonList>) {
+                if (response.code() == 200) {
+
+                    Log.e("아아아앙", Gson().toJson(response.body()))
+                    var parser = JSONParser()
+                    var obj = parser.parse(Gson().toJson(response.body())) as JSONObject
+                    array = obj.get("list") as JSONArray?
+//                    obj.getString("name")
+//                    obj.getString("price")
+//                    obj.getString("img")
+//                    obj.getString("size")
+//                    obj.getString("season")
+
+                    for ( i in 0 .. array!!.size-1) {
+                        Log.e("i",i.toString())
+                            tmp = array!![i] as JSONObject?
+                        if(tmp!!.get("season") as String == "여름") {
+                            item.add(RecyclerData(
+                                    tmp!!.get("name") as String,
+                                    tmp!!.get("price") as String,
+                                    tmp!!.get("img") as String,
+                                    tmp!!.get("company") as String,
+                                    tmp!!.get("size") as String))
+                        }
+                    }
+
+                    adapter.notifyDataSetChanged()
+                } else {
+                    Log.e("로그를 머로찍지", "정보존재x")
+                }
+
+            }
+
+            override fun onFailure(call: Call<SeasonList>?, t: Throwable?) {
+                Log.e("seasonError", t!!.message)
+            }
+        })
+        return view
     }
 
 

@@ -40,14 +40,9 @@ class LockerFragment : Fragment() {
     }
 
     fun adddummy(){
-        items.add(locker("http://iwin247.kr:3030/img/NhvbPKX7k6is7y6kh6JFPkrMuGRFBUdI4.PNG","hightoon","XL","jacket","50,000"))
-        items.add(locker("http://iwin247.kr:3030/img/NhvbPKX7k6is7y6kh6JFPkrMuGRFBUdI4.PNG","highasdn","XL","jacket","50,000"))
-        items.add(locker("http://iwin247.kr:3030/img/NhvbPKX7k6is7y6kh6JFPkrMuGRFBUdI4.PNG","asdasdn","XL","jacket","50,000"))
-        items.add(locker("http://iwin247.kr:3030/img/NhvbPKX7k6is7y6kh6JFPkrMuGRFBUdI4.PNG","hiasdsadasdon","XL","jacket","50,000"))
-        items.add(locker("http://iwin247.kr:3030/img/NhvbPKX7k6is7y6kh6JFPkrMuGRFBUdI4.PNG","hiasdsadasdon","XL","jacket","50,000"))
-        items.add(locker("http://iwin247.kr:3030/img/NhvbPKX7k6is7y6kh6JFPkrMuGRFBUdI4.PNG","hiasdsadasdon","XL","jacket","50,000"))
-        items.add(locker("http://iwin247.kr:3030/img/NhvbPKX7k6is7y6kh6JFPkrMuGRFBUdI4.PNG","hiasdsadasdon","XL","jacket","50,000"))
-    }
+        items.add(locker("http://iwin247.kr:3030/img/q3uMhurcMz69w5k1RMgMBP9b9nPpJzUkV.PNG","도도쿠","XL","펫피스","230000"))
+        items.add(locker("http://iwin247.kr:3030/img/n84FXG8oaHGuBWWLIARmCAYMoZaR7ULa8.PNG","수퍼트울트라","XXL","다두비두바","360000"))
+        }
 
     fun setrecyclerview(){
         fragmentview.recyclerview.layoutManager = LinearLayoutManager(context!!)

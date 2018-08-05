@@ -5,6 +5,7 @@ import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import android.support.v4.app.FragmentStatePagerAdapter
 import android.util.Log
+import com.hightoon.Util.RetrofitUtil
 import com.hightoon.controller.fragment.FallFragment
 import com.hightoon.controller.fragment.SpringFragment
 import com.hightoon.controller.fragment.SummerFragment
